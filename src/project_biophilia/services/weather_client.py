@@ -1,0 +1,89 @@
+import openmeteo_requests
+import pandas as pd
+import niquests  # <-- Use niquests instead of requests / requests_cache
+from typing import List, Any
+import numpy as np
+
+# Import underlying openmeteo types
+from openmeteo_sdk.WeatherApiResponse import WeatherApiResponse
+
+# 1. Create a native niquests Session (fully compatible with openmeteo out-of-the-box)
+# niquests handles retries and pooling natively!
+session = niquests.Session()
+
+# 2. Pass it straight to the client without needing any type casting
+openmeteo = openmeteo_requests.Client(session=session)
+
+# 1. Define a precise type alias for the NumPy arrays
+FloatArray = np.ndarray[Any, np.dtype[np.float32]]
+# --- The rest of your processing script remains identical ---
+
+
+def fetchCurrentWeather(lat: float, long: float):
+    url: str = "https://api.open-meteo.com/v1/forecast"
+    params: dict[str, float | list[str] | str] = {
+        "latitude": lat,
+        "longitude": long,
+        "hourly": [
+            "temperature_2m",
+            "apparent_temperature",
+            "rain",
+            "cloud_cover",
+            "shortwave_radiation",
+            "direct_radiation"
+        ],
+        "models": "icon_seamless",
+    }
+
+    responses: List[WeatherApiResponse] = openmeteo.weather_api(  # type: ignore[reportUnknownMemberType]
+        url, params=params)
+    response: WeatherApiResponse = responses[0]
+
+    print(f"Coordinates: {response.Latitude()}°N {response.Longitude()}°E")
+    print(f"Elevation: {response.Elevation()} m asl")
+    print(f"Timezone difference to GMT+0: {response.UtcOffsetSeconds()}s")
+
+    # Process hourly data
+    hourly = response.Hourly()
+    if hourly is None:
+        raise ValueError("No hourly data returned from the API")
+
+    # 2. Add a helper function to safely extract variables and satisfy Pylance
+
+    def get_hourly_var(index: int) -> FloatArray:
+        # The "Bang" setup
+        assert hourly is not None
+        var = hourly.Variables(index)
+        if var is None:
+            raise ValueError(
+                f"Requested weather variable at index {index} is missing from the API response.")
+        return var.ValuesAsNumpy()
+
+    # 3. Cleanly extract your data with ZERO Pylance warnings!
+    hourly_temperature_2m: FloatArray = get_hourly_var(0)
+    hourly_apparent_temperature: FloatArray = get_hourly_var(1)
+    hourly_rain: FloatArray = get_hourly_var(2)
+    hourly_cloud_cover: FloatArray = get_hourly_var(3)
+    hourly_shortwave_radiation: FloatArray = get_hourly_var(4)
+    hourly_direct_radiation: FloatArray = get_hourly_var(5)
+
+    hourly_data: dict[str, Any] = {
+        "date": pd.date_range(
+            start=pd.to_datetime(hourly.Time(), unit="s", utc=True),
+            end=pd.to_datetime(hourly.TimeEnd(), unit="s", utc=True),
+            freq=pd.Timedelta(seconds=hourly.Interval()),
+            inclusive="left"
+        )
+    }
+
+    hourly_data["temperature_2m"] = hourly_temperature_2m
+    hourly_data["apparent_temperature"] = hourly_apparent_temperature
+    hourly_data["rain"] = hourly_rain
+    hourly_data["cloud_cover"] = hourly_cloud_cover
+    hourly_data["shortwave_radiation"] = hourly_shortwave_radiation
+    hourly_data["direct_radiation"] = hourly_direct_radiation
+
+    hourly_dataframe: pd.DataFrame = pd.DataFrame(data=hourly_data)
+    print("\nHourly data\n", hourly_dataframe)
+
+    return hourly_data
