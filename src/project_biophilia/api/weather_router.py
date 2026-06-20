@@ -1,6 +1,6 @@
 
 from fastapi import APIRouter, HTTPException
-from src.project_biophilia.services.weather_client import fetchCurrentWeather
+from src.project_biophilia import fetchCurrentWeather
 import numpy as np
 from typing import Any, cast
 

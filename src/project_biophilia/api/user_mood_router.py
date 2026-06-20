@@ -1,10 +1,11 @@
 from fastapi import APIRouter  # ,HTTPException
 from pydantic import BaseModel
+from typing import Literal
 
 
 # Define the structure of the data you expect from the user
 class User_Mood(BaseModel):
-    energy_level: str
+    energy_level: Literal["low", "mid", "high"]
     age: int
 
 
