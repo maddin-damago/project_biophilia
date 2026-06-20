@@ -1,0 +1,7 @@
+openmeteo-requests
+niquests
+requests-cache
+retry-requests
+numpy
+pandas
+fastapi[standard]
