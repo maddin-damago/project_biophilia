@@ -8,7 +8,7 @@ router = APIRouter(prefix="/api/weather", tags=["Weather & Mood"])
 
 
 @router.get("/mood-index")
-def get_biophilic_mood_index(lat: float = 52.52, lon: float = 13.41) -> dict[str, Any]:
+def get_biophilic_mood_index(lat: float = 52.52, lon: float = 13.42) -> dict[str, Any]:
     try:
         # Call your incoming service!
         weather_data = fetchCurrentWeather(lat, lon)
