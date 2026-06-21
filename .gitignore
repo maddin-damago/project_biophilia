@@ -1,2 +1,15 @@
 __pycache__/
 *.pyc
+
+# Windows-specific files
+Thumbs.db
+Desktop.ini
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
