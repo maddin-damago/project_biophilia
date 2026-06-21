@@ -4,6 +4,8 @@ import niquests  # <-- Use niquests instead of requests / requests_cache
 from typing import List, Any
 import numpy as np
 
+from ..helpers import print_my_data
+
 # Import underlying openmeteo types
 from openmeteo_sdk.WeatherApiResponse import WeatherApiResponse
 
@@ -86,7 +88,8 @@ def fetchCurrentWeather(lat: float, long: float):
     hourly_data["shortwave_radiation"] = hourly_shortwave_radiation
     hourly_data["direct_radiation"] = hourly_direct_radiation
 
-    hourly_dataframe: pd.DataFrame = pd.DataFrame(data=hourly_data)
-    print("\nHourly data\n", hourly_dataframe)
+    hourly_dataframe: pd.DataFrame = pd.DataFrame(  # type: ignore
+        data=hourly_data)
 
+    print_my_data("What is fetched:", hourly_dataframe)
     return hourly_data
