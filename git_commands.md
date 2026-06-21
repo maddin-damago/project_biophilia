@@ -2,6 +2,25 @@
 
 Welcome to the team! This guide covers the essential Git commands you will use daily to collaborate on **Project Biophilia** without stepping on each other's toes.
 
+## Prerequisites
+
+After installing git and before first pull or push, set up your username and email for git. This is NOT a login of any kind, it is what will be your signature for your git work.
+
+```bash
+# Set your global username
+git config --global user.name "Your Name"
+
+# Set your global email address
+git config --global user.email "your.email@example.com"
+```
+
+To check your current settings
+
+```bash
+# View your current configuration values
+git config --global --list
+```
+
 ---
 
 ## 🚀 1. Every Morning (Get the Latest Code)
