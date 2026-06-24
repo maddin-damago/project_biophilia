@@ -21,3 +21,9 @@ uvicorn src.project_biophilia.main:app --reload
 ```bash
 python3 -m uvicorn src.project_biophilia.main:app --reload
 ```
+
+## if it says "uvicorn not found", use this
+
+```bash
+python3 -m uvicorn src.project_biophilia.main:app --reload --reload-dir .
+```
