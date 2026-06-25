@@ -33,6 +33,12 @@ git checkout main
 
 # Get the newest updates from GitHub
 git pull origin main
+
+# get all the current branhces, if necessary
+git fetch all
+
+# see all branches local and remote
+git branch -a
 ```
 
 ## 🛠️ 2. Starting a New Feature (Create a Branch)
