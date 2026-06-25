@@ -1,8 +1,7 @@
 from functools import reduce
-
-from fastapi import APIRouter, HTTPException  # ,HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
-from typing import Literal, Optional
+from typing import Literal
 
 
 # Define the structure of the data you expect from the user
