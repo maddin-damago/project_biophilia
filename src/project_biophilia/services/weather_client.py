@@ -1,3 +1,5 @@
+import math
+
 import openmeteo_requests
 import pandas as pd
 import niquests  # <-- Use niquests instead of requests / requests_cache
@@ -29,13 +31,12 @@ def fetchCurrentWeather(lat: float, long: float):
         "timezone": "Europe/Berlin",
         "hourly": [
             "temperature_2m",
-            "apparent_temperature",
-            "rain",
+            "precipitation_probability",
             "cloud_cover",
-            "shortwave_radiation",
-            "direct_radiation"
-        ],
-        "models": "icon_seamless",
+            "uv_index",
+            "relative_humidity_2m"
+        ]  # ,
+        # "models": "icon_seamless",
     }
 
     responses: List[WeatherApiResponse] = openmeteo.weather_api(  # type: ignore[reportUnknownMemberType]
@@ -66,11 +67,10 @@ def fetchCurrentWeather(lat: float, long: float):
 
     # Cleanly extract your data with ZERO Pylance warnings!
     hourly_temperature_2m: FloatArray = get_hourly_var(0)
-    hourly_apparent_temperature: FloatArray = get_hourly_var(1)
-    hourly_rain: FloatArray = get_hourly_var(2)
-    hourly_cloud_cover: FloatArray = get_hourly_var(3)
-    hourly_shortwave_radiation: FloatArray = get_hourly_var(4)
-    hourly_direct_radiation: FloatArray = get_hourly_var(5)
+    hourly_precipitation_probability: FloatArray = get_hourly_var(1)
+    hourly_cloud_cover: FloatArray = get_hourly_var(2)
+    hourly_uv_index: FloatArray = get_hourly_var(3)
+    hourly_relative_humidity_2m: FloatArray = get_hourly_var(4)
 
     hourly_data: dict[str, Any] = {
         "date": pd.date_range(
@@ -82,14 +82,13 @@ def fetchCurrentWeather(lat: float, long: float):
     }
 
     hourly_data["temperature_2m"] = hourly_temperature_2m
-    hourly_data["apparent_temperature"] = hourly_apparent_temperature
-    hourly_data["rain"] = hourly_rain
+    hourly_data["precipitation_probability"] = hourly_precipitation_probability
     hourly_data["cloud_cover"] = hourly_cloud_cover
-    hourly_data["shortwave_radiation"] = hourly_shortwave_radiation
-    hourly_data["direct_radiation"] = hourly_direct_radiation
+    hourly_data["uv_index"] = hourly_uv_index
+    hourly_data["relative_humidity_2m"] = hourly_relative_humidity_2m
 
     hourly_dataframe: pd.DataFrame = pd.DataFrame(  # type: ignore
         data=hourly_data)
 
-    print_my_data("What is fetched:", hourly_dataframe)
+    print_my_data("What is fetched:", hourly_data)
     return hourly_data
