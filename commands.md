@@ -27,3 +27,7 @@ python3 -m uvicorn src.project_biophilia.main:app --reload
 ```bash
 python3 -m uvicorn src.project_biophilia.main:app --reload --reload-dir .
 ```
+
+```bash
+python -m uvicorn src.project_biophilia.main:app --reload --reload-dir .
+```
