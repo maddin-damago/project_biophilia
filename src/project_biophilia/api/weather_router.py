@@ -11,7 +11,7 @@ router = APIRouter(prefix="/api/weather", tags=["Weather & Mood"])
 def get_biophilic_mood_index(lat: float = 52.52, lon: float = 13.42) -> dict[str, Any]:
     try:
         # Call your incoming service!
-        # weather_data = fetchCurrentWeather(lat, lon)
+        weather_data = fetchCurrentWeather(lat, lon)
 
         # # Calculate mean values from your NumPy arrays for the day
         # avg_clouds = float(cast(float, np.mean(weather_data["cloud_cover"])))
