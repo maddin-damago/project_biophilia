@@ -1,296 +1,154 @@
 import numpy as np
-from typing import Any
+
 from dataclasses import dataclass
-
-
-# Types
 
 
 @dataclass
 class WeatherScore:
-    # All sub-scores (0–100) and the final combined score
-    sunshine_score: float
-    temperature_score: float
-    humidity_score: float
-    precipitation_score: float
-    uv_score: float
-    cloud_score: float
-    combined_score: float       # weighted average of all sub-scores
 
+    def temperature_score(self, temps: np.ndarray) -> float:
+        avg = float(np.mean(temps))
+        score = float(np.interp(
+            avg,
+            [-1, 0, 10, 20, 25, 35, 36],
+            [0, 10, 40, 80, 100, 40, 0]
+        ))
+        return score
 
-@dataclass
-class ActivityCategory:
-    """One of the 8 output categories."""
-    environment: str            # "outdoor" | "indoor"
-    level: str                  # "high" | "stable" | "reduced" | "critical"
-    label: str                  # human-readable
-    description: str
-    score: float                # the combined 0-100 score that triggered this
-    recommendations: list[str]
+    def humidity_score(self, humidity: np.ndarray) -> float:
+        avg = float(np.mean(humidity))
+        score = float(np.interp(
+            avg,
+            [0, 20, 30, 60, 75, 85, 100],
+            [40, 70, 100, 100, 60, 30, 0]
+        ))
+        return score
 
+    def uv_score(self, uv: np.ndarray) -> float:
+        avg = float(np.mean(uv))
+        score = float(np.interp(
+            avg,
+            [1, 3, 5, 8, 10, 11],  # uv-indizes
+            [100, 80, 80, 50, 20, 0]
+        ))
+        return score
 
-# ---------------------------------------------------------------------------
-# Sub-score calculators (each returns 0–100)
-# ---------------------------------------------------------------------------
+    def cloud_score(self, cloud_cover: np.ndarray) -> float:
+        avg = float(np.mean(cloud_cover))
+        score = float(np.interp(
+            avg,
+            [0, 20, 50, 80, 100],  # bewölkung in %
+            [80, 100, 60, 20, 0]
+        ))
+        return score
 
-def _score_temperature(temps: np.ndarray) -> float:
-    """
-    Optimal range 18–22 °C → 100.
-    Drops off linearly outside that window.
-    Below 0 °C or above 38 °C → 0.
-    """
-    avg = float(np.mean(temps))
-    if 18 <= avg <= 22:
-        return 100.0
-    if avg < 18:
-        return max(0.0, 100.0 - (18 - avg) * 5)
-    # avg > 22
-    return max(0.0, 100.0 - (avg - 22) * 5)
+    def percipation_score(self, precip: np.ndarray) -> float:
+        avg = float(np.mean(precip))
+        score = float(np.interp(
+            avg,
+            [0, 20, 50, 80, 100],  # in %
+            [100, 80, 40, 10, 0]
+        ))
+        return score
 
+    def interaction_penalty(
+        self,
+        temps: np.ndarray,
+        humidity: np.ndarray,
+        cloud_cover: np.ndarray,
+        uv: np.ndarray,
+    ) -> tuple[float, list[str]]:
+        """
+        strafpunkte für paradoxe wetterkonstellationen.
+        gibt (penalty: float, warnungen: list[str]) zurück.
+        """
+        avg_temp = float(np.mean(temps))
+        avg_humid = float(np.mean(humidity))
+        avg_cloud = float(np.mean(cloud_cover))
+        avg_uv = float(np.mean(uv))
+        temp_diff = float(np.max(temps) - np.min(temps))
 
-def _score_precipitation(precip_prob: np.ndarray) -> float:
-    """
-    0 % rain probability → 100.
-    100 % probability → 0.
-    """
-    avg = float(np.mean(precip_prob))
-    return max(0.0, 100.0 - avg)
+        penalty = 0.0
+        warnings = []
 
+        # 1. hitzestress: heiß + wolkenlos
+        if avg_temp > 35 and avg_cloud < 20:
+            penalty += 20
+            warnings.append(
+                f"Hitzestress-Falle: {avg_temp:.1f}°C Temperatur + {avg_cloud:.0f}% Bewölkung "
+                f"(-20 Pkt). Direkte Sonne verstärkt Hitzestress stark."
+            )
 
-def _score_cloud_cover(clouds: np.ndarray) -> float:
-    """
-    0 % cloud cover → 100 (clear sky).
-    100 % overcast → 20 (not 0 – diffuse light still has value).
-    """
-    avg = float(np.mean(clouds))
-    return max(20.0, 100.0 - avg * 0.8)
+        # 2. schwül: angenehme temperatur + sehr hohe luftfeuchtigkeit oder hohe temperatur + hohe luftfeuchtigkeit
+        if 20 <= avg_temp <= 26 and avg_humid > 80:
+            penalty += 15
+            warnings.append(
+                f"Schwüle-Falle: {avg_temp:.1f}°C Temperatur + {avg_humid:.0f}% Luftfeuchtigkeit "
+                f"(-15 Pkt). Schwitzen wird erschwert, Erschöpfung steigt."
+            )
+        elif 27 < avg_temp and avg_humid >= 52:
+            penalty += 15
+            warnings.append(
+                f"Schwüle-Falle: {avg_temp:.1f}°C Temperatur + {avg_humid:.0f}% Luftfeuchtigkeit "
+                f"(-15 Pkt). Schwitzen wird erschwert, Erschöpfung steigt."
+            )
 
+        # 3. trockener grautag: bewölkt + trocken
+        if avg_cloud > 85 and avg_humid < 35:
+            penalty += 10
+            warnings.append(
+                f"Trockener Grautag: {avg_cloud:.0f}% Bewölkung + {avg_humid:.0f}% Luftfeuchtigkeit "
+                f"(-10 Pkt). Lichtmangel und trockene Luft kombinieren sich negativ."
+            )
 
-def _score_uv(uv: np.ndarray) -> float:
-    """
-    UV index 3–5 → 100 (healthy exposure).
-    UV > 8 → penalty (risk of sunburn).
-    UV < 1 → low score (little benefit).
-    """
-    avg = float(np.mean(uv))
-    if avg < 1:
-        return 30.0
-    if 1 <= avg < 3:
-        return 60.0 + (avg - 1) * 20        # 60 → 100
-    if 3 <= avg <= 5:
-        return 100.0
-    if 5 < avg <= 8:
-        return max(60.0, 100.0 - (avg - 5) * 13.3)
-    # avg > 8 — high UV risk
-    return max(20.0, 60.0 - (avg - 8) * 10)
+        # 4. thermoregulations-stress: große temperaturschwankung im tag
+        if temp_diff > 12:
+            penalty += 10
+            warnings.append(
+                f"Thermoregulations-Stress: Temperaturdifferenz {temp_diff:.1f}°C "
+                f"(-10 Pkt). Körper muss ständig zwischen Kälte und Hitze umschalten."
+            )
 
+        # 5. hitze ohne lichtbonus: heiß aber kein UV
+        if avg_temp > 30 and avg_uv < 1:
+            penalty += 5
+            warnings.append(
+                f"Hitze ohne Lichtbonus: {avg_temp:.1f}°C + UV {avg_uv:.1f} "
+                f"(-10 Pkt). Hitzebelastung ohne positiven Serotonin-Effekt."
+            )
 
-def _score_humidity(humidity: np.ndarray) -> float:
-    """
-    Optimal 40–60 % → 100.
-    < 30 % or > 70 % → discomfort.
-    """
-    avg = float(np.mean(humidity))
-    if 40 <= avg <= 60:
-        return 100.0
-    if avg < 40:
-        return max(0.0, 100.0 - (40 - avg) * 3.3)
-    # avg > 60
-    return max(0.0, 100.0 - (avg - 60) * 3.3)
+        return penalty, warnings
 
+    def combined_score(
+        self,
+        temps: np.ndarray,
+        humidity: np.ndarray,
+        uv: np.ndarray,
+        cloud: np.ndarray,
+        # precip: np.ndarray,
+    ) -> tuple[float, list[str]]:
 
-# ---------------------------------------------------------------------------
-# Combined score
-# ---------------------------------------------------------------------------
+        weights = {
+            # "precipitation": 0.35,
+            "temperature": 0.40,
+            "cloud": 0.35,
+            "humidity": 0.15,
+            "uv": 0.10
+        }
 
-# Weights must sum to 1.0
-_WEIGHTS = {
-    "temperature":   0.25,
-    "precipitation": 0.30,   # highest – rain is the biggest blocker
-    "cloud_cover":   0.15,
-    "uv":            0.15,
-    "humidity":      0.15,
-}
+        scores = {
+            # "precipitation": self.percipation_score(precip),
+            "temperature": self.temperature_score(temps),
+            "cloud": self.cloud_score(cloud),
+            "humidity": self.humidity_score(humidity),
+            "uv": self.uv_score(uv),
+        }
 
+        base_score = float(sum(scores[key] * weights[key]
+                               for key in weights))
 
-def calculate_weather_score(weather_data: dict[str, Any]) -> WeatherScore:
-    temps = np.array(weather_data["temperature_2m"],           dtype=float)
-    precip = np.array(weather_data["precipitation_probability"], dtype=float)
-    clouds = np.array(weather_data["cloud_cover"],              dtype=float)
-    uv = np.array(weather_data["uv_index"],                 dtype=float)
-    humidity = np.array(weather_data["relative_humidity_2m"],     dtype=float)
+        penalty, warnings = self.interaction_penalty(
+            temps, humidity, cloud, uv)
 
-    t_score = _score_temperature(temps)
-    p_score = _score_precipitation(precip)
-    c_score = _score_cloud_cover(clouds)
-    u_score = _score_uv(uv)
-    h_score = _score_humidity(humidity)
-
-    combined = (
-        t_score * _WEIGHTS["temperature"] +
-        p_score * _WEIGHTS["precipitation"] +
-        c_score * _WEIGHTS["cloud_cover"] +
-        u_score * _WEIGHTS["uv"] +
-        h_score * _WEIGHTS["humidity"]
-    )
-
-    return WeatherScore(
-        sunshine_score=round(c_score, 1),       # proxy for sunshine
-        temperature_score=round(t_score, 1),
-        humidity_score=round(h_score, 1),
-        precipitation_score=round(p_score, 1),
-        uv_score=round(u_score, 1),
-        cloud_score=round(c_score, 1),
-        combined_score=round(combined, 1),
-    )
-
-
-# ---------------------------------------------------------------------------
-# 8-category classifier
-# ---------------------------------------------------------------------------
-#
-#  Score thresholds (weather-only, 0–100):
-#
-#   75–100  → outdoor  · high
-#   55–74   → outdoor  · stable
-#   35–54   → outdoor  · reduced   (or indoor stable depending on precip)
-#   0–34    → outdoor  · critical  / forced indoor
-#
-#  The indoor counterpart is always one level "better" than the outdoor
-#  reading because you're sheltered from the negative factors.
-#
-#  Final rule: if precipitation score < 40 (likely rain) the primary
-#  recommendation flips to indoor regardless of the combined score.
-
-def classify_activity(score: WeatherScore) -> ActivityCategory:
-    s = score.combined_score
-    rainy = score.precipitation_score < 40
-
-    # ── Outdoor high ────────────────────────────────────────────────────────
-    if s >= 75 and not rainy:
-        return ActivityCategory(
-            environment="outdoor",
-            level="high",
-            label="Outdoor · High",
-            description="Ausgezeichnete Bedingungen – idealer Tag für intensive Outdoor-Aktivitäten.",
-            score=s,
-            recommendations=[
-                "Längere Wanderungen oder Radtouren",
-                "Sport im Freien (Laufen, Yoga im Park)",
-                "Waldbaden / Shinrin-yoku",
-                "Picknick oder Gartenarbeit",
-            ],
-        )
-
-    # ── Outdoor stable ──────────────────────────────────────────────────────
-    if 55 <= s < 75 and not rainy:
-        return ActivityCategory(
-            environment="outdoor",
-            level="stable",
-            label="Outdoor · Stable",
-            description="Gute Bedingungen für moderate Outdoor-Aktivitäten.",
-            score=s,
-            recommendations=[
-                "Spaziergang im Park oder Wald",
-                "Leichtes Stretching / Atemübungen draußen",
-                "Entspannte Fahrradtour",
-                "Kurze Mittagspause im Freien",
-            ],
-        )
-
-    # ── Outdoor reduced ─────────────────────────────────────────────────────
-    if 35 <= s < 55 and not rainy:
-        return ActivityCategory(
-            environment="outdoor",
-            level="reduced",
-            label="Outdoor · Reduced",
-            description="Mäßige Bedingungen – kurze Outdoor-Einheiten sind möglich, aber begrenzt.",
-            score=s,
-            recommendations=[
-                "Kurzer Spaziergang (15–20 Min.)",
-                "Bewusste Atemübungen an der frischen Luft",
-                "Balkon- oder Terrassenzeit",
-                "Leichte Gartenarbeit in geschützter Lage",
-            ],
-        )
-
-    # ── Outdoor critical ────────────────────────────────────────────────────
-    if s < 35 and not rainy:
-        return ActivityCategory(
-            environment="outdoor",
-            level="critical",
-            label="Outdoor · Critical",
-            description="Ungünstige Bedingungen – Outdoor-Aktivitäten nur kurz und geschützt.",
-            score=s,
-            recommendations=[
-                "Nur kurze Wege (Einkauf, etc.)",
-                "Wetterfeste Kleidung anziehen",
-                "Drinnen Tageslichtlampe nutzen",
-                "Bewegung auf Indoor-Alternativen verlagern",
-            ],
-        )
-
-    # ── Ab hier: Regen dominiert → Indoor-Kategorien ────────────────────────
-
-    # ── Indoor high ─────────────────────────────────────────────────────────
-    if s >= 65:
-        return ActivityCategory(
-            environment="indoor",
-            level="high",
-            label="Indoor · High",
-            description="Trotz Regen hoher Wellbeing-Potenzial – perfekter Tag für produktive Indoor-Zeit.",
-            score=s,
-            recommendations=[
-                "Intensives Home-Workout / Yoga",
-                "Kreativer Flow-State (Zeichnen, Schreiben, Musik)",
-                "Neue Rezepte ausprobieren",
-                "Tiefes Lernprojekt starten",
-            ],
-        )
-
-    # ── Indoor stable ───────────────────────────────────────────────────────
-    if 45 <= s < 65:
-        return ActivityCategory(
-            environment="indoor",
-            level="stable",
-            label="Indoor · Stable",
-            description="Gute Indoor-Bedingungen – strukturierter Tag mit Wohlbefinden-Fokus.",
-            score=s,
-            recommendations=[
-                "Leichtes Home-Workout oder Stretching",
-                "Meditationseinheit (10–20 Min.)",
-                "Kräutertee trinken & bewusst pausieren",
-                "Pflanzen gießen / Indoor-Natur pflegen",
-            ],
-        )
-
-    # ── Indoor reduced ──────────────────────────────────────────────────────
-    if 25 <= s < 45:
-        return ActivityCategory(
-            environment="indoor",
-            level="reduced",
-            label="Indoor · Reduced",
-            description="Anspruchsvolle Bedingungen – regenerativer Indoor-Tag empfohlen.",
-            score=s,
-            recommendations=[
-                "Ruhe & Erholung priorisieren",
-                "Warme Mahlzeiten kochen (Suppen, Eintöpfe)",
-                "Sanfte Atemübungen oder Body-Scan",
-                "Tageslichtlampe einsetzen",
-            ],
-        )
-
-    # ── Indoor critical ─────────────────────────────────────────────────────
-    return ActivityCategory(
-        environment="indoor",
-        level="critical",
-        label="Indoor · Critical",
-        description="Sehr schlechte Außenbedingungen – vollständiger Indoor-Tag, Selbstfürsorge-Modus.",
-        score=s,
-        recommendations=[
-            "Vollständige Ruhe & Regeneration",
-            "Warme Getränke, Decke, Komfort-Routinen",
-            "Leichte Stretching-Einheit auf der Matte",
-            "Professionelle Hilfe suchen falls Stimmung anhaltend tief",
-        ],
-    )
+        final_score = float(np.clip(base_score - penalty, 0, 100))
+        return final_score, warnings
