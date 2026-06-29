@@ -1,70 +1,59 @@
-# from ..services.weather_client import fetchCurrentWeather
-
 from weather_client_2 import fetchCurrentWeather
+from weather_scoring import WeatherScore
 
 import pandas as pd
-
+import numpy as np
 from astral import LocationInfo
 from astral.sun import sun
-
 from datetime import timezone
 
 
-# from ..helpers import print_my_data
+def weatherDataProcessing(latitude: float = 52.52, longitude: float = 13.42) -> dict:
+    # wetterdaten holen
+    weather_data = fetchCurrentWeather(latitude, longitude)
+
+    # datum korrigieren (UTC+2)
+    weather_data['date'] = pd.to_datetime(
+        weather_data['date'] + pd.Timedelta(hours=2), utc=False
+    )
+
+    # sonnenaufgang/sonnenuntergang berechnen
+    current_date = weather_data['date'].dt.date.iloc[0]
+    city = LocationInfo("Berlin", "Germany",
+                        "Europe/Berlin", latitude, longitude)
+    sun_data = sun(city.observer, date=current_date, tzinfo=city.timezone)
+    print(sun_data)
+    sunrise = sun_data['sunrise'].astimezone(timezone.utc).replace(
+        minute=0, second=0, microsecond=0)
+    sunrise += pd.Timedelta(hours=2)
+    sunset = sun_data['sunset'].astimezone(timezone.utc).replace(
+        minute=0, second=0, microsecond=0)
+    sunset += pd.Timedelta(hours=2)
+
+    # aktuelle tagesdaten filtern
+    df_day = weather_data[
+        (weather_data['date'] >= sunrise) &
+        (weather_data['date'] <= sunset)
+    ]
+
+    # arrays für WeatherScore vorbereiten
+    temps = df_day['temperature_2m'].to_numpy()
+    humidity = df_day['relative_humidity_2m'].to_numpy()
+    uv = df_day['uv_index'].to_numpy()
+    cloud = df_day['cloud_cover'].to_numpy()
+
+    # score berechnen
+    scorer = WeatherScore()
+    final_score, warnings = scorer.combined_score(temps, humidity, uv, cloud)
+
+    return {
+        "score": round(final_score, 1),
+        "warnings": warnings
+    }
 
 
-# hier kriegt man die wetterdaten und speichert sie in einer variablen für 52.52... -> Berlin
-weather_data = fetchCurrentWeather(52.52, 13.42)
-print("tt", weather_data)
-
-weather_data['date'] = pd.to_datetime(
-    weather_data['date'] + pd.Timedelta(days=0, hours=2, minutes=0), utc=False)
-print("tt2", weather_data)
-
-# datum automatisch aus den daten holen
-current_date = weather_data['date'].dt.date.iloc[0]
-
-# standort definieren
-city = LocationInfo("Berlin", "Germany", "Europe/Berlin", 52.52, 13.42)
-s = sun(city.observer, date=current_date, tzinfo=city.timezone)
-
-
-sunrise_utc = s['sunrise'].astimezone(
-    timezone.utc).replace(minute=0, second=0, microsecond=0)
-sunrise_utc += pd.Timedelta(days=0, hours=2, minutes=0)
-sunset_utc = s['sunset'].astimezone(timezone.utc).replace(
-    minute=0, second=0, microsecond=0)
-sunset_utc += pd.Timedelta(days=0, hours=2, minutes=0)
-
-
-df_day = weather_data[(weather_data['date'] >= sunrise_utc)
-                      & (weather_data['date'] <= sunset_utc)]
-
-print(df_day)
-
-print(sunrise_utc)
-print(sunset_utc)
-# print(f"s:{s}")
-
-# print(weather_data['date'].head(10))
-# print(weather_data['date'].dtype)
-
-weather_data['date'] = pd.to_datetime(weather_data['date'], utc=True)
-# print(weather_data['temperature_2m'].min())
-# print(weather_data['temperature_2m'].max())
-
-
-def weatherDataProcessing():
-    pass
-    # alle_temps = weather_data["temperature_2m"]
-   # weather_data = fetchCurrentWeather(52.52, 13.42)
-
-    # print_my_data("heey hier", alle_temps)
-
-    # print("meine daten von dulares", weather_data)
-
-
-# @dataclass
-# def temperature_score(self):
-
-print(weather_data.columns.tolist())
+if __name__ == "__main__":
+    result = weatherDataProcessing()
+    print(f"Mood Index: {result['score']}/100")
+    for w in result['warnings']:
+        print(w)
