@@ -1,0 +1,236 @@
+{
+  "beifuss": {
+    "trivialName": "Gewöhnlicher Beifuß",
+    "botanischerName": "Artemisia vulgaris",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/ArtemisiaVulgaris.jpg/500px-ArtemisiaVulgaris.jpg",
+    "familie": "Asteraceae/ Korbblütler",
+    "ernte": "ganzjährig auffindbar",
+    "erkennungsmerkmale": [
+      "Staude",
+      "Dichte Rispe mit vielen, meist 3 - 4 mm langen Blütenkörbchen",
+      "gefiederte Blätter mit gesägten Abschnitten",
+      "silbrig-weiße Blattunterseite",
+      "aufrechter Wuchs",
+      "schwacher Geruch beim Zerreiben"
+    ],
+    "verwechslungsgefahr": [
+      "Beifuß-Ambrosie (Ambrosia artemisiifolia)",
+      "Wermuth (Artemisia absinthium)"
+    ],
+    "vorkommen": "Als anspruchsloser Kulturfolger gedeiht er wild an Wegrändern, auf Schuttplätzen, Brachflächen, an Bahndämmen, Dämmen sowie auf nährstoffreichen Böden.",
+    "heilwirkung": "Traditionelle Ritualpflanze, lädt zur bewussten Naturwahrnehmung ein. Die Volksmedizin empfiehlt sie bei Magenbeschwerden. Der Name Artemisia leitet sich von Artemis, der griechischen Jagdgöttin ab."
+  },
+
+  "schafgarbe": {
+    "trivialName": "Wiesen-Schafgarbe",
+    "botanischerName": "Achillea millefolium",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Gemeine_Schafgarbe.jpg",
+    "familie": "Asteraceae/ Korbblütler",
+    "ernte": "Blattrosetten oft ganzjährig sichtbar",
+    "erkennungsmerkmale": [
+      "Staude",
+      "Körbchen mit weißen, manchmal rosa Zungenblüten",
+      "Blätter sind fiederspaltig mit sehr feinen Zipfeln",
+      "charakteristischer aromatischer Duft"
+    ],
+    "verwechslungsgefahr": [
+    "Gefleckter Schierling (Conium maculatum)"
+    ],
+    "vorkommen": "Wächst wild auf fast allen Wiesen, Weiden, Halbtrockenrasen sowie an Weg- und Ackerrändern. Sie bevorzugt sonnige bis halbschattige, trockene und durchlässige Standorte",
+    "heilwirkung": "Fördert die Aufmerksamkeit für feine Naturdetails. Sie wirkt entzündungshemmend, krampflösend und antimikrobiell. In der Volksmedizin wird Schafgarbe als blutstillendes Mittel und zur Verminderung der Schweißbildung verwendet."
+  },
+
+  "quendel": {
+    "trivialName": "Quendel/ Sand-Thymian",
+    "botanischerName": "Thymus serpyllum",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Bl%C3%BChender_Sand-Thymian_%28Thymus_serpyllum%29_im_NSG_%22Hirschacker_und_Dossenwald%22_02.jpg/1280px-Bl%C3%BChender_Sand-Thymian_%28Thymus_serpyllum%29_im_NSG_%22Hirschacker_und_Dossenwald%22_02.jpg",
+    "familie": "Lamiaceae/ Lippenblütler",
+    "ernte": "die Blätter und Blüten werden vermehrt im Juni und September oder getrocknet verwendet",
+    "erkennungsmerkmale": [
+      "Zwergstrauch",
+      "Stängel aufsteigend, unter dem Blütenstand vierkantig",
+      "Kleine, elliptische Blätter, meist nur 5 - 10 mm lang und bis 4 mm breit",    
+      "mehrere Unterarten, die würzzig oder nach Zitrone duften"
+    ],
+    "verwechslungsgefahr": [
+      "Edel-Gamander, Echte Gamander oder auch das Schafkraut (Teucrium chamaedrys)"
+    ],
+    "vorkommen": "Gedeiht am besten an vollsonnigen, warmen und geschützten Standorten. Optimal ist ein sandig-steiniger, trockener und nährstoffarmer Boden.",
+    "heilwirkung": "Unterstützt fokussierte Sinneswahrnehmung. Aufgrund seiner Dreifachwirkung sehr gut zur Behandlung von Bronchitis, Keuchhusten und Katharren der oberen Luftwege geeignet. Außerdem durchblutungsfördernd, desinfizierend und desodorierend."
+  },
+
+  "dost": {
+    "trivialName": "Gewöhnlicher Dost/ Wilder Majoran",
+    "botanischerName": "Origanum vulgare",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/ORIGANUM_VULGARE_-_SANT_JUST_-_IB-230_%28Orenga%29.JPG/1280px-ORIGANUM_VULGARE_-_SANT_JUST_-_IB-230_%28Orenga%29.JPG",
+    "familie": "Lamiaceae/ Lippenblütler",
+    "ernte": "während der Blütezeit von Juli bis September oder getrocknet",
+    "erkennungsmerkmale": [
+      "Staude",
+      "4 - 7 mm lange, weiß bis purpurrote Blüten, behaart",
+      "zweilippig und röhrenförmig gewachsen in ährigen Scheinquirlen",
+      "Kleine, eiförmige Blättchen, ganzrandig, gekreuzt gegenständig",      
+      "angenehm, charakteristischer Herba-Geruch (Oregano)"
+    ],
+    "verwechslungsgefahr": [
+      "Wasserdost (Eupatorium cannabinum)"
+    ],
+    "vorkommen": "Gebüschränder, Trocken- und Halbtrockenrasen, Böschungen, meist auf kalkhaltigen Böden.",
+    "heilwirkung": "Regt die bewusste Wahrnehmung von Gerüchen an. Wirkt stark antioxidativ, antibakteriell und entzündungshemmend im Mund- und Rachenraum sowie bei leichten Magen-Darm-Beschwerden durch reichlich enthaltenes Thymol und Carvacrol."
+  },
+
+  "gundermann": {
+    "trivialName": "Gundermann",
+    "botanischerName": "Glechoma hederacea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Glechoma_hederacea_Bluszczyk_kurdybanek_2020-04-24_03.jpg/960px-Glechoma_hederacea_Bluszczyk_kurdybanek_2020-04-24_03.jpg",
+    "familie": "Lamiaceae/ Lippenblütler",
+    "ernte": "wintergrün",
+    "erkennungsmerkmale": [
+      "Staude",
+      "lilafarbene Blüte mit flacher Oberlippe",
+      "Blätter gegenständig, nieren- bis herzförmig, Blattrand gekerbt",
+      "kriechender Wuchs",
+      "leicht minziger Geschmack"
+    ],
+    "verwechslungsgefahr": [
+      "keine giftigen Doppelgänger"
+    ],
+    "vorkommen": "Wiesen, Weiden, Rasenflächen, Auenwälder, Waldränder, Hecken und Böschungen. Auf feucht bis nassen, nährstoffreichen Lehmböden.",
+    "heilwirkung": "Fördert langsame Naturerkundung. Seine Hauptwirkung ist entzündungshemmend, schleimlösend und wundheilend. Er wird traditionell bei Erkältungen, Bronchitis und Magen-Darm-Beschwerden sowie zur Unterstützung der Wundheilung eingesetzt."
+  },
+
+  "spitzwegerich": {
+    "trivialName": "Spitzwegerich",
+    "botanischerName": "Plantago lanceolata",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Spitzwegerich_%28Plantago_lanceolata%29.jpg/960px-Spitzwegerich_%28Plantago_lanceolata%29.jpg",
+    "familie": "Plantaginaceae/ Wegerichgewächse",
+    "ernte": "ganzjährig",
+    "erkennungsmerkmale": [
+      "Staude",
+      "Blüte unscheinbar mit lang herausragenden Staubblättern",
+      "schmale lanzettliche Blätter",
+      "deutliche Blattnerven"
+    ],
+    "verwechslungsgefahr": [
+      "keine giftigen Doppelgänger"
+    ],
+    "vorkommen": "Fettwiesen, Weiden, Parkrasen, Ödflächen, Wege, Äcker, meist auf tiefgründigen Böden.",
+    "heilwirkung": "Unterstützt die Aufmerksamkeit für Details in der Natur. Wirkt gegen Schleimhautentzündungen und Reizhusten. Frische Blätter können zerrieben und auf Insekten- oder Brennnesselstiche aufgetragen werden."
+  },
+
+  "ysop": {
+    "trivialName": "Ysop",
+    "botanischerName": "Hyssopus officinalis",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Hyssopus_officinalis_HC2.jpg/1280px-Hyssopus_officinalis_HC2.jpg",
+    "familie": "Lamiaceae/ Lippenblütler",
+    "ernte": "Ende Juni und Anfang September oder getrocknet",
+    "erkennungsmerkmale": [
+      "immergründer Halbstrauch",
+      "tiefblaue, trichterförmige Blüten, zweilippig und in schlanken Scheinähren wachsend",
+      "schmale Blätter",
+      "würziger Duft"
+    ],
+    "verwechslungsgefahr": [
+      "Eisenhut (Aconitum)"
+    ],
+    "vorkommen": "vor allem in trockenen Felslagen",
+    "heilwirkung": "Historische Klosterpflanze, fördert bewusstes Innehalten. Wirkt sekretionsfördernd, krampflösend und entzündungshemmend. Traditionell angewendet bei Blähungen, leichten Magen-Darm-Beschwerden sowie zur Unterstützung bei Atemwegserkrankungen."
+  },
+
+  "fenchel": {
+    "trivialName": "Gewürz-Fenchel",
+    "botanischerName": "Foeniculum vulgare",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Foeniculum_vulgare.JPG",
+    "familie": "Apiaceae/ Doldenblütler",
+    "ernte": "Spätsommer bis Herbst, oder getrocknet",
+    "erkennungsmerkmale": [
+      "robuste, tief wurzelnde Staude",
+      "kleine gelbe Blüten, die in flachen Dolden wachsen",
+      "haarfein gefiederte anisartig duftende Blätter",
+      "ab August bilden sich die aromatischen, graubraunen Fenchelfrüchte"
+    ],
+    "verwechslungsgefahr": [
+      "Hundspetersilie (Aethusa cynapium)",
+      "Gefleckter Schierling (Conium maculatum)"
+    ],
+    "vorkommen": ". Die wärmeliebende Pflanze gedeiht bevorzugt an sonnigen, trockenen Standorten wie steinigen Hängen, Wegrändern und auf Magerrasen",
+    "heilwirkung": "Eignet sich für ruhige Teerituale. Die ätherischen Öle der Fenchelfrüchte wirken schleimlösend, auswurffördernd und antiseptisch."
+  },
+
+  "vogelmiere": {
+    "trivialName": "Vogel-Sternmiere",
+    "botanischerName": "Stellaria media",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/StellariaMedia001.JPG/1280px-StellariaMedia001.JPG",
+    "familie": "Caryophyllaceae/ Nelkengewächse",
+    "ernte": "ganzjährig",
+    "erkennungsmerkmale": [
+      "niederliegende oder aufsteigende, auf einer Längslinie behaarte Stängel",
+      "kleine weiße Sternblüten",
+      "gegenständige Blätter, fiedernervig"
+    ],
+    "verwechslungsgefahr": [
+      "Acker-Gauchheil (Anagallis arvensis)"
+    ],
+    "vorkommen": "Gärten, Äcker, Wege und Ufer. Auf sehr Nährstoffreichen Böden, auch im Schatten.",
+    "heilwirkung": "Symbolisiert Anpassungsfähigkeit und Resilienz. Entzündungshemmend, schleimlösend und wundheilend. Gilt wegen des hohen Nährstoffgehalts als heimisches Superfood."
+  },
+
+  "fichte": {
+    "trivialName": "Fichte",
+    "botanischerName": "Picea abies",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Fichtentrieb.jpg",
+    "familie": "Pinaceae/ Kieferngewächse",
+    "ernte": "ganzjährig",
+    "erkennungsmerkmale": [
+      "spitze/ stechende Nadeln rundherum angeordnet",
+      "hängende Zapfen",
+      "Rinde rotbraun bis graubraun und schuppig", 
+      "kegelförmiger Wuchs", 
+      "Flachwurzler"
+    ],
+    "verwechslungsgefahr": [
+      "Eibe (Taxus baccata)"
+    ],
+    "vorkommen": "Nadelmischwälder, Bergmischwälder und forstliche Reinbestände.",
+    "heilwirkung": "Der Waldduft unterstützt Naturverbundenheit. Enthält entzündungshemmende ätherische Öle in den Nadeln und Harzen für Erkältungsbäder, Hustensäfte und Salben gegen Muskelschmerzen."
+  },
+
+  "zitronenmelisse": {
+    "trivialName": "Zitronenmelisse",
+    "botanischerName": "Melissa officinalis",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Zitronenmelisse.JPG/1280px-Zitronenmelisse.JPG",
+    "familie": "Lamiaceae/ Lippenblütler",
+    "ernte": "Frühjahr (Mai bis Juni) oder getrocknet",
+    "erkennungsmerkmale": [
+      "vierkantiger Stänge", 
+      "gegenständige eiförmige Blätter mit gesägtem Rand", 
+      "intensiver Zitronenduft beim Zerreiben", 
+      "kleine weiße bis blassrosa Lippenblüten in den Blattachseln"
+    ],
+    "verwechslungsgefahr": [
+      "Katzenminze (Nepeta cataria)"
+    ],
+    "vorkommen": "Lichte Laub- und Mischwälder, Waldränder, Gebüsche, Weinberge und nährstoffreiche Säume. Frische bis mäßig trockene, nährstoff- und humusreiche Lehm- und Sandböden.",
+    "heilwirkung": "Unterstützt Entspannung und Ausgeglichenheit. Wirkt beruhigend bei Nervosität, Schlafstörungen sowie Stress und lindert krampflösend Magen-Darm-Beschwerden oder Blähungen. Zudem hilft sie als Salbe durch ihre antiviralen Eigenschaften bei Lippenherpes."
+  },
+
+  "kamille": {
+    "trivialName": "Kamille",
+    "botanischerName": "Matricaria chamomilla",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Matricaria_recutita.jpg",
+    "familie": "Asteraceae/ Korbblütler",
+    "ernte": "getrocknet",
+    "erkennungsmerkmale": [
+    "zarter fiederteiliger Blattbau", 
+    "Blütenköpfchen mit weißer Zungenblüte und gelber Röhrenblüte",
+    "Blütenboden innen völlig hohl", 
+    "kegelförmig gewölbter Blütenboden",
+    "intensiver aromatischer Kamillegeruch"
+  ],
+    "verwechslungsgefahr": [
+      "Hundskamille (Anthemis)"
+    ],
+    "vorkommen": "wächst bevorzugt auf Äckern, Brachflächen und an Wegrändern auf frischen, nährstoff- und stickstoffreichen Lehm- und Tonböden.",
+    "heilwirkung": "Beruhigt und unterstützt Entspannung. Entzündungshemmend, krampflösend, antibakteriell, wundheilungsfördernd, verdauungsfördernd, beruhigend, blähungstreibend."
+  }
+}
