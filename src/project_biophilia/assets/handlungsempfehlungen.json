@@ -1,0 +1,83 @@
+{
+  "HIGH_OUTDOOR": {
+    "condition": "Du bist voller Lebensenergie, während draußen die Sonne strahlt. Eine perfekte Balance zwischen deiner inneren Kraft und äußeren Einflüssen.",
+    "kraeuter": ["beifuss", "schafgarbe"],
+    "aktivität": ["Nutze deine Energie und geh raus in die Natur. Nimm dir die Zeit die beiden Wildkräuter exakt zu bestimmen. Wenn du den Beifuß und die Schafgarbe bereits erkennst, pflücke dir jeweils ein Beifuß- und ein Schafgarbenblatt. Alternativ kannst du auch die Blüten nehmen.",
+                  "Zerreibe den wilden Beifuß in deiner linken Hand, die traditionell mit dem Herzen verbunden ist. Spüre die Energie, die er ausstrahlt, ganz intuitiv, noch bevor sie über die rechte Hand deinen Verstand erreicht und in eine logische Struktur gebracht wird.",
+                  "In der rechten Hand hältst du das Schafgarbenblatt. Spüre und betrachte das geometrische Schafgarbenblatt, die feingliedrigen Formen, die durcheinander wirken und gleichzeitig messerscharf angeordnet sind. Nutze die Klarheit der Schafgarbe, um über deine rechte Hand die logische Seite deines Gehirns zu aktivieren. Bündle all deine Energie, richte dich auf dein nächstes Ziel aus und sprich es laut aus."
+                ],
+    "erklaerung": "Bei hoher Energie im Außen hilft der wilde Beifuß, Kräfte wieder frei fließen zu lassen. Die feine Schafgarbe sorgt gleichzeitig dafür, dass diese Energie gebündelt und genau dorthin gelenkt wird, wo sie gerade benötigt wird."
+  },
+
+  "HIGH_INDOOR": {
+    "condition": "Unabhängig von grauem Himmel und Regen strahlst du pure Lebensfreude und tiefe Zufriedenheit aus.",
+    "kraeuter": ["quendel", "dost"],
+    "aktivität": ["Nimm dir ganz bewusst Zeit für eine kleine Teezeremonie. Koche Wasser auf und gib je einen Teelöffel Quendel und Dost in deine Lieblingstasse. Gieße das Wasser langsam auf und beobachte, wie sich die Farbe verändert.", 
+                  "Während der Tee für 5 bis 7 Minuten zieht, setze dich aufrecht hin. Atme den aufsteigenden, intensiv würzigen und krautigen Duft tief ein. Spüre, wie die ätherischen Öle deinen Kopf frei machen und dich innerlich aktivieren.", 
+                  "Nimm den ersten Schluck. Lass die Wärme und die würzige Kraft der Kräuter durch deinen Körper fließen.", "Nimm nun ein Notizbuch zur Hand. Deine Energie ist jetzt wach und fokussiert. Schreibe die drei wichtigsten Aufgaben auf, die du heute mit dieser Kraft anpacken und zu Ende bringen willst. Setze hinter jede Aufgabe ein kleines Kästchen zum Abhaken."
+                ],
+    "erklaerung": "Mit ihrer wärmenden und befreienden Wirkung sind Quendel und Dost perfekt für Momente voller Energie. Diese beiden Wildkräuter helfen dir, deine Kräfte zu bündeln und die Gedanken in geordnete Bahnen zu lenken."
+  },
+
+  "STABLE_OUTDOOR": {
+    "condition": "Das freundliche Wetter spiegelt deine stabile, ausgeglichene Stimmung wider und lädt zu angenehmen Aktivitäten ein.",
+    "kraeuter": ["gundermann", "spitzwegerich"],
+    "aktivität": ["Gibt es immer denselben Weg, den du durch die Natur nimmst? Wähle heute das Ungewohnte. Informiere dich, welche Spaziermöglichkeiten, Wälder oder Naturpfade es in deiner Umgebung gibt, die du noch nicht kennst. Gehe dort auf Entdeckungsreise, ganz ohne bestimmtes Ziel. Lasse dich einfach vom Weg und deinem inneren Gefühl führen.",
+                  "Achte unterwegs ganz aufmerksam darauf, wo dir der Spitzwegerich und der Gundermann am Wegrand begegnen. Das Wort „Wegerich“ stammt aus dem Althochdeutschen und setzt sich aus zwei Teilen zusammen: wega für den Weg und rih (germanisch rik) für den Herrscher, Fürst oder König. Für die Germanen war der Spitzwegerich also der „Wegekönig“. Er fordert dich heute auf: Gehe andere Wege! Der Gundermann leitet sich wiederum vom althochdeutschen Begriff Gunda ab, was so viel wie „die Beschützerin“ bedeutet. Bei den Kelten und Germanen galt er als heiliges Kraut, das um Höfe gepflanzt wurde, um das Negative fernzuhalten. Wenn du die beiden Pflanzen am Wegrand entdeckst, halte kurz inne. Lass dich vom Wegekönig ermutigen, das Unbekannte zu wagen, und spüre gleichzeitig den Schutz der alten germanischen Beschützerin an deiner Seite.",
+                  "Was hast du auf deiner Entdeckungsreise erlebt? Welche neuen Gedanken haben sich dir auf diesem frischen Pfad gezeigt?"
+                ],
+    "erklaerung": "Zwei klassische heimische Wildkräuter, die zu jeder Jahreszeit zu finden sind. Sie stehen für Beständigkeit, Widerstandskraft und Erdung."
+  },
+
+  "STABLE_INDOOR": {
+    "condition": "Trotz des trüben Wetters bewahrst du deine innere Ruhe und Gelassenheit.",
+    "kraeuter": ["ysop", "fenchel"],
+    "aktivität": ["Es gibt Tage, an denen die Erwartungen anderer und die Reize der Welt ungefiltert auf dich einströmen. Denke in solchen Zeiten daran, auch mal abzuschalten, denn genau dieses Innehalten hilft dir dabei, in deiner derzeitigen Kraft zu bleiben.",
+                  "Nutze dafür die klärende und harmonisierende Kraft von Ysop und Fenchel: Übergieße einen Teelöffel Fenchelsamen und einen Teelöffel Ysopkraut in einer großen Schüssel mit kochendem Wasser. Nimm dir ein großes Handtuch und beuge dich über die Schüssel. Lege das Handtuch über deinen Kopf und schließe die Augen. Inhaliere den aufsteigenden, würzig-süßen Dampf für zwei Minuten tief und langsam. Spüre, wie der Ysop deinen Geist klärt und der Fenchel deine Mitte wärmt. Stell dir vor, wie der Dampf den Stress aus deinem Gesicht wäscht. Mach dich ganz frei von allem Denken, bleib nur im Moment, alles andere kann jetzt warten.",
+                  "Nun nimm dir Zettel und Stift zur Hand. Überlege dir, wovon du dich gerne abgrenzen würdest und wofür du im Gegenzug gerne mehr Zeit hättest. Mach dir zwei Spalten und schreibe alles nieder. Überlege dir dann ganz konkret, was aus der Spalte Abgrenzung du heute oder in den nächsten Tagen tatsächlich umsetzen kannst? Wie gewinnst du dadurch mehr Zeit für die Dinge, die du eigentlich machen möchtest? Vielleicht ist mehr Zeit in und mit der Natur zu verbringen, ja schon der erste Punkt auf deiner Liste."
+                ],
+    "erklaerung": "Ysop bringt geistige Klarheit und Struktur in den Raum, während Fenchel sanft den Bauch und somit deine Mitte harmonisiert. Das hält den Fokus stabil und ruhig."
+  },
+
+  "REDUCED_OUTDOOR": {
+    "condition": "Draußen scheint die Sonne, doch das schöne Wetter passt so gar nicht zu deiner gedrückten Stimmung.",
+    "kraeuter": ["vogelmiere", "gundermann"],
+    "aktivität": ["Geh hinaus an einen besonderen Platz in der Natur, der dir gefällt und an dem du dich wohlfühlst. Einen Ort, an dem du merkst: Hier kann ich mich entspannen. Setze dich nieder und atme zehnmal tief ein und aus.",
+                  "Nutze die frisch gewonnene Energie, um dich auf den Weg zu machen, die beiden Wildkräuter exakt zu bestimmen und zu sammeln. Nimm dabei nur so viel mit, wie du wirklich verbrauchen wirst. Bereite dir heute einen besonderen Salat zu, den du mit den beiden Wildkräutern verfeinerst, und spüre ganz bewusst, wie die Nährstoffe deinem Körper neue Kraft geben.",
+                  "Kleiner Tipp: Nimm ruhig etwas mehr von dem Gundermann mit. Dieser lässt sich hervorragend zu einem Wilden After-Eight verarbeiten, indem du die Blättchen in geschmolzene Schokolade tunkst und fest werden lässt. Durch die feine, frisch herbe Note des Gundermanns kreierst du dir so eine ganz besondere Delikatesse, und dazu lässt Schokolade bekanntlich noch Glücksgefühle frei."
+                ],
+    "erklaerung": "Wenn die Energie sinkt, regeneriert die vitaminreiche Vogelmiere sanft, während der ausdauernde Gundermann hilft, die restlichen Kräfte im Fluss zu halten, ohne zu überfordern."
+  },
+
+  "REDUCED_INDOOR": {
+    "condition": "Das ungemütliche Wetter spiegelt die aktuelle, etwas gedrückte Stimmung wider und lädt zum Rückzug ein.",
+    "kraeuter": ["zitronenmelisse", "fenchel"],
+    "aktivität": ["Wie steht es um deinen Geruchssinn? Unsere Nase zeigt uns oft den richtigen Weg. Sie lässt uns nicht nur Pflanzen an ihrem Duft erkennen, sondern nimmt die heilsamen Inhaltsstoffe direkt über das Atmen in uns auf. So wie die Wirkung von Zitronenmelisse und Fenchel. Die beiden Kräuter helfen dir, dich innerlich neu zu sortieren, deine Balance wiederzufinden und die Dinge aus einem anderen Blickwinkel zu betrachten.",
+                  "Nimm Dir ein paar Fenchelsamen, ein paar Blätter Zitronenmelisse (frisch oder getrocknet) sowie etwas zum Schreiben und setze dich an einen gemütlichen Ort. Schließe die Augen, zerreibe die Kräuter sanft zwischen deinen Fingern und beginne zu schnuppern. Atme die ätherischen Öle tief und langsam ein. Halte den Atem zwischen dem Ein- und Ausatmen für einen kurzen Moment an.",
+                  "Was ist der allererste Gedanke, der dir dabei in den Sinn kommt? Öffne kurz die Augen und schreibe ihn direkt nieder. Nimm dir nun weitere 5 Minuten Zeit. Lass den Duft ganz auf dich wirken und beobachte einfach, wie sich die Intensität und die verschiedenen Nuancen mit der Zeit verändern. Reflektiere zum Schluss: Was ist in diesen fünf Minuten in dir passiert? Und wie wirkt der aufgeschriebene Gedanke jetzt, mit ein wenig Abstand, auf dich?"
+                ],
+    "erklaerung": "In Momenten schwindender Kraft schenkt der Fenchel deiner inneren Mitte neue Aufrichtung, während die Melisse Balsam für das Gemüt ist. Beide hüllen deine Erschöpfung in wärmende Sanftheit."
+  },
+
+  "CRITICAL_OUTDOOR": {
+    "condition": "Das schöne Wetter zieht draußen vorbei, während Du innerlich gerade Erschöpfung spürst und dich nach Ruhe sehnst.",
+    "kraeuter": ["fichte", "vogelmiere"],
+    "aktivität": ["Es gibt Phasen, in denen die Kräfte schwinden und man sich einfach nur anlehnen möchte oder nach Geborgenheit und Halt sucht. Genau in solchen Momenten lohnt es sich, die Kraft aufzubringen, um sich in die Natur zu begeben. Es muss kein weiter Weg sein, nur eine schöne Stelle im Grünen oder am Wasser, an der du dich wohlfühlst.",
+                  "Suche dir einen Baum, am besten eine Fichte, an die du dich fest anlehnen kannst. Schließe die Augen. Atme nun 4 Sekunden lang ein, halte den Atem für 7 Sekunden an und atme 8 Sekunden lang aus. Wiederhole diese Atemübung mindestens viermal. Die ätherischen Öle der Fichte (Monoterpene) die du dabei einatmest senken nachweislich das Stresshormon Cortisol, wirken angstlösend und aktivieren dich bei psychischer Passivität. Nimm dir anschließend einen kleinen Natur-Glücks-Bringer von diesem Ort mit, einen Tannenzapfen oder einen kleinen Ast und nimm ihn mit nach Hause. Immer wenn du im Alltag Angst oder Stress verspürst, nimm dieses Objekt in die Hand, rieche daran und schließe die Augen. Wiederhole die Atemübung und erinnere dich an diesen Ort, den Geruch und daran, wie gut du dich dort gefühlt hast.",
+                  "Auf dem Rückweg kannst du dir noch etwas Vogelmiere mitnehmen und sie zu einem Salat oder Smoothie verarbeiten. Die Vogelmiere ist reich an Vitamin C, Eisen und Magnesium. Damit kannst du deinen Nährstoffhaushalt aufpäppeln und deinen Gemütszustand auch von innen heraus verbessern."
+                ],
+    "erklaerung": "Im Zustand völliger Erschöpfung oder Stress, spendet die Fichte im Wald sofortigen Schutz, der harzige Geruch lässt den Atem tiefer werden, während die Vogelmiere als sanfter, grüner Teppich erdet."
+  },
+
+  "CRITICAL_INDOOR": {
+    "condition": "Das trübe Wetter passt zu Deinem aktuellen Bedürfnis nach Rückzug.",
+    "kraeuter": ["zitronenmelisse", "kamille"],
+    "aktivität": ["Wartest du darauf, Geborgenheit im Außen zu finden? Dabei bist du selbst dir am nächsten. Und genau darin liegt deine größte Kraft!",
+                  "Bereite dir einen warmen Tee aus Kamille und Zitronenmelisse zu. Ziehe dich an deinen absoluten Lieblingsplatz in der Wohnung zurück. Sorge dafür, dass dieser Raum eine klare, wohltuende Ordnung ausstrahlt, und gestalte ihn dir so richtig kuschelig.",
+                "Nimm den ersten Schluck deines Tees ganz bewusst wahr. Spüre, wie die wohlige Wärme mit jedem weiteren Schluck tiefer in deinen Körper fließt und sich ausbreitet.",
+                "Und dann: Umarme dich selbst.",
+                "Schließe die Augen. Spüre ganz wertfrei, wie es sich anfühlt, wenn du deine Arme mal etwas fester und mal etwas lockerer um dich legst. Sinke tief in diese Umarmung hinein. Lass jeden einzelnen Muskel los, entspanne dich vollkommen und schmecke dem köstlichen, beruhigenden Tee nach.",
+                "Was hast du in diesem Moment der puren Selbstfürsorge erlebt?"],
+    "erklaerung": "Bei akutem Stress und seelischer Überforderung wirken Melisse und Kamille wie ein sanfter Schutzmantel. Sie helfen dir, deine Gedanken wieder zur Ruhe zu bringen und dein Nervensystem zu beruhigen. Insbesondere die Kamille wirkt wie ein natürliches, sanftes Beruhigungsmittel, da ihr Wirkstoff Apigenin an dieselben Entspannungsrezeptoren im Gehirn andockt wie Benzodiazepine, jedoch ohne deren Suchtpotenzial."
+  }
+}
