@@ -16,8 +16,8 @@ def weatherDataProcessing(latitude: float = 52.52, longitude: float = 13.42):
     mood_score = get_latest_mood_summary()
 
     # Fallback-Mittelwert falls der allererste Aufruf ohne gespeicherte Moods stattfindet
-    assert mood_score is not None
-    mood_sum = mood_score["sum"]
+
+    mood_sum = mood_score["sum"] if mood_score is not None else 15
     mood_kat = "STABLE"
 
     # WHO-5 Klassifizierung

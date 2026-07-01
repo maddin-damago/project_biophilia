@@ -6,3 +6,4 @@ numpy
 pandas
 fastapi[standard]
 rich
+astral
