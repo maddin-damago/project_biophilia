@@ -7,3 +7,4 @@ pandas
 fastapi[standard]
 rich
 astral
+pydantic[email]
