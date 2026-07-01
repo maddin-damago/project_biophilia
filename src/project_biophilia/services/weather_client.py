@@ -90,5 +90,5 @@ def fetchCurrentWeather(lat: float, long: float):
     hourly_dataframe: pd.DataFrame = pd.DataFrame(  # type: ignore
         data=hourly_data)
 
-    print_my_data("What is fetched:", hourly_data)
-    return hourly_data
+    # print_my_data("What is fetched:", hourly_data)
+    return hourly_dataframe
