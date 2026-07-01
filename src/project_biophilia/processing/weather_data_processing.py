@@ -5,12 +5,32 @@ from astral import LocationInfo
 import numpy as np
 import pandas as pd
 from src.project_biophilia.services.weather_client import fetchCurrentWeather
+from src.project_biophilia.api.user_mood_router import get_latest_mood_summary
 
 
-def weatherDataProcessing(latitude: float = 52.52, longitude: float = 13.42) -> dict:
+def weatherDataProcessing(latitude: float = 52.52, longitude: float = 13.42):
     # wetterdaten holen
     weather_data = fetchCurrentWeather(latitude, longitude)
     # print(weather_data)
+    #
+    mood_score = get_latest_mood_summary()
+
+    # Fallback-Mittelwert falls der allererste Aufruf ohne gespeicherte Moods stattfindet
+    assert mood_score is not None
+    mood_sum = mood_score["sum"]
+    mood_kat = "STABLE"
+
+    # WHO-5 Klassifizierung
+    if mood_sum >= 20:
+        mood_kat = "HIGH"
+    elif mood_sum >= 13:
+        mood_kat = "STABLE"
+    elif mood_sum >= 8:
+        mood_kat = "REDUCED"
+    else:
+        mood_kat = "CRITICAL"
+
+    print(mood_score)
 
     # datum korrigieren (UTC+2)
     # weather_data["date"] = pd.to_datetime(
@@ -38,9 +58,9 @@ def weatherDataProcessing(latitude: float = 52.52, longitude: float = 13.42) -> 
 
     # arrays für WeatherScore vorbereiten
     temps = df_day["temperature_2m"].to_numpy()
-    humidity = df_day["relative_humidity_2m"].to_numpy()
-    uv = df_day["uv_index"].to_numpy()
-    cloud = df_day["cloud_cover"].to_numpy()
+    # humidity = df_day["relative_humidity_2m"].to_numpy()
+    # uv = df_day["uv_index"].to_numpy()
+    # cloud = df_day["cloud_cover"].to_numpy()
     precip_prob = df_day["precipitation_probability"].to_numpy()
 
     avg_temp = float(np.mean(temps))
@@ -67,16 +87,12 @@ def weatherDataProcessing(latitude: float = 52.52, longitude: float = 13.42) -> 
        # temps, humidity, uv, cloud)
     # warnings.extend(score_warnings)
 
-    return {
-        #    "score": round(final_score, 1),
-        "environment_suggestion": stimmung_wetter_lage
-        #    ,
-        #    "warnings": warnings
-    }
+    recommendation_key = mood_kat + "_" + stimmung_wetter_lage
+    print(recommendation_key)
+    return recommendation_key
 
 
 if __name__ == "__main__":
     result = weatherDataProcessing()
-    print(f"Umgebungsschalter: {result["environment_suggestion"]}")
 
     # print(result)
