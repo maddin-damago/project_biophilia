@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.project_biophilia.api.weather_router import router as weather_router
 from src.project_biophilia.api.user_mood_router import router as user_mood_router
+from src.project_biophilia.api.recommendation_router import router as recommendation_router
 from src.project_biophilia.api.user_registration_router import router as user_registration_router
 # from src.api.herbs_router import router as herbs_router  <-- Your team can add this tomorrow!
 
@@ -22,7 +23,7 @@ app.add_middleware(
 # Mount your router paths
 app.include_router(weather_router)
 app.include_router(user_mood_router)
-app.include_router(user_mood_router)
+app.include_router(recommendation_router)
 app.include_router(user_registration_router)
 
 
