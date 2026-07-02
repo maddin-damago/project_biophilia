@@ -1,6 +1,6 @@
 {
   "HIGH_OUTDOOR": {
-    "condition": "Du bist voller Lebensenergie, während draußen die Sonne strahlt. Eine perfekte Balance zwischen deiner inneren Kraft und äußeren Einflüssen.",
+    "condition": "Das Wetter ist blendend und du bist voller Lebensenergie. Eine perfekte Balance zwischen deiner inneren Kraft und äußeren Einflüssen.",
     "kraeuter": ["beifuss", "schafgarbe"],
     "aktivität": ["Nutze deine Energie und geh raus in die Natur. Nimm dir die Zeit die beiden Wildkräuter exakt zu bestimmen. Wenn du den Beifuß und die Schafgarbe bereits erkennst, pflücke dir jeweils ein Beifuß- und ein Schafgarbenblatt. Alternativ kannst du auch die Blüten nehmen.",
                   "Zerreibe den wilden Beifuß in deiner linken Hand, die traditionell mit dem Herzen verbunden ist. Spüre die Energie, die er ausstrahlt, ganz intuitiv, noch bevor sie über die rechte Hand deinen Verstand erreicht und in eine logische Struktur gebracht wird.",
@@ -23,7 +23,9 @@
     "condition": "Das freundliche Wetter spiegelt deine stabile, ausgeglichene Stimmung wider und lädt zu angenehmen Aktivitäten ein.",
     "kraeuter": ["gundermann", "spitzwegerich"],
     "aktivität": ["Gibt es immer denselben Weg, den du durch die Natur nimmst? Wähle heute das Ungewohnte. Informiere dich, welche Spaziermöglichkeiten, Wälder oder Naturpfade es in deiner Umgebung gibt, die du noch nicht kennst. Gehe dort auf Entdeckungsreise, ganz ohne bestimmtes Ziel. Lasse dich einfach vom Weg und deinem inneren Gefühl führen.",
-                  "Achte unterwegs ganz aufmerksam darauf, wo dir der Spitzwegerich und der Gundermann am Wegrand begegnen. Das Wort „Wegerich“ stammt aus dem Althochdeutschen und setzt sich aus zwei Teilen zusammen: wega für den Weg und rih (germanisch rik) für den Herrscher, Fürst oder König. Für die Germanen war der Spitzwegerich also der „Wegekönig“. Er fordert dich heute auf: Gehe andere Wege! Der Gundermann leitet sich wiederum vom althochdeutschen Begriff Gunda ab, was so viel wie „die Beschützerin“ bedeutet. Bei den Kelten und Germanen galt er als heiliges Kraut, das um Höfe gepflanzt wurde, um das Negative fernzuhalten. Wenn du die beiden Pflanzen am Wegrand entdeckst, halte kurz inne. Lass dich vom Wegekönig ermutigen, das Unbekannte zu wagen, und spüre gleichzeitig den Schutz der alten germanischen Beschützerin an deiner Seite.",
+                  "Achte unterwegs ganz aufmerksam darauf, wo dir der Spitzwegerich und der Gundermann am Wegrand begegnen. Wenn du die beiden Pflanzen entdeckst, halte kurz inne.",
+                  "Der Spitzwegerich wächst mit seinen schmalen Blättern aufrecht und extrem robust, selbst auf harten, viel belaufenen Pfaden. Biochemisch ist er ein echtes Kraftpaket: Seine Blätter enthalten einen hohen Anteil an Iridoidglycosiden (wie Aucubin) sowie pflanzlichen Schleim- und Gerbstoffen. In der Wissenschaft sind diese Wirkstoffe für ihre stark entzündungshemmende, zellschützende und gewebestärkende Wirkung bekannt. Der Spitzwegerich zeigt dir heute: Auch du besitzt die nötige Widerstandskraft, um neue, ungewohnte Wege stabil und fokussiert zu meistern.",
+                  "Der Gundermann wiederum breitet sich wie ein dichter, schützender Teppich flach am Boden aus und bewahrt das Gleichgewicht des Bodens. Wenn du ein Blatt zwischen den Fingern reibst, nimmst du seinen charakteristisch würzigen Geruch wahr, eine Kombination aus ätherischen Ölen, Gerb- und Bitterstoffen sowie sekundären Pflanzenstoffen. Die Inhaltsstoffe wirken über die Atemwege direkt auf das Nervensystem und senken nachweislich das Stresshormon Cortisol, fördern die mentale Klarheit und stärken deine emotionale Resilienz. Der Gundermann signalisiert dir: Du bist auf deinem neuen Weg sicher und bestens geschützt.",
                   "Was hast du auf deiner Entdeckungsreise erlebt? Welche neuen Gedanken haben sich dir auf diesem frischen Pfad gezeigt?"
                 ],
     "erklaerung": "Zwei klassische heimische Wildkräuter, die zu jeder Jahreszeit zu finden sind. Sie stehen für Beständigkeit, Widerstandskraft und Erdung."
@@ -40,7 +42,7 @@
   },
 
   "REDUCED_OUTDOOR": {
-    "condition": "Draußen scheint die Sonne, doch das schöne Wetter passt so gar nicht zu deiner gedrückten Stimmung.",
+    "condition": "Schau mal nach draußen: Das Wetter ist traumhaft! Doch das schöne Wetter passt so gar nicht zu deiner gedrückten Stimmung.",
     "kraeuter": ["vogelmiere", "gundermann"],
     "aktivität": ["Geh hinaus an einen besonderen Platz in der Natur, der dir gefällt und an dem du dich wohlfühlst. Einen Ort, an dem du merkst: Hier kann ich mich entspannen. Setze dich nieder und atme zehnmal tief ein und aus.",
                   "Nutze die frisch gewonnene Energie, um dich auf den Weg zu machen, die beiden Wildkräuter exakt zu bestimmen und zu sammeln. Nimm dabei nur so viel mit, wie du wirklich verbrauchen wirst. Bereite dir heute einen besonderen Salat zu, den du mit den beiden Wildkräutern verfeinerst, und spüre ganz bewusst, wie die Nährstoffe deinem Körper neue Kraft geben.",
@@ -50,7 +52,7 @@
   },
 
   "REDUCED_INDOOR": {
-    "condition": "Das ungemütliche Wetter spiegelt die aktuelle, etwas gedrückte Stimmung wider und lädt zum Rückzug ein.",
+    "condition": "Das ungemütliche Wetter spiegelt deine aktuelle, etwas gedrückte Stimmung wider und lädt zum Rückzug ein.",
     "kraeuter": ["zitronenmelisse", "fenchel"],
     "aktivität": ["Wie steht es um deinen Geruchssinn? Unsere Nase zeigt uns oft den richtigen Weg. Sie lässt uns nicht nur Pflanzen an ihrem Duft erkennen, sondern nimmt die heilsamen Inhaltsstoffe direkt über das Atmen in uns auf. So wie die Wirkung von Zitronenmelisse und Fenchel. Die beiden Kräuter helfen dir, dich innerlich neu zu sortieren, deine Balance wiederzufinden und die Dinge aus einem anderen Blickwinkel zu betrachten.",
                   "Nimm Dir ein paar Fenchelsamen, ein paar Blätter Zitronenmelisse (frisch oder getrocknet) sowie etwas zum Schreiben und setze dich an einen gemütlichen Ort. Schließe die Augen, zerreibe die Kräuter sanft zwischen deinen Fingern und beginne zu schnuppern. Atme die ätherischen Öle tief und langsam ein. Halte den Atem zwischen dem Ein- und Ausatmen für einen kurzen Moment an.",
