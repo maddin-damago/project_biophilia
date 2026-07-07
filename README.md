@@ -11,3 +11,4 @@ Anwendung die aufgrund von Wetterdaten und Energielevel einen Mood Score und ein
    > 💡 **Windows 11 Tip:** If PowerShell gives you a red "Running Scripts is disabled" error when starting Uvicorn, open PowerShell as Administrator and run:
    > `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 5. Use the server at `127.0.0.1:8000`
+6. Find the API Docu at `127.0.0.1:8000/docs`
