@@ -18,3 +18,5 @@ Check your version (if installed) with
    > `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 5. Use the server at `127.0.0.1:8000`
 6. Find the API Docu at `127.0.0.1:8000/docs`
+
+Find the React frontend here: https://github.com/maddin-damago/project_biophilia_frontend
