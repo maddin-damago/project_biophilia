@@ -5,6 +5,9 @@ Anwendung die aufgrund von Wetterdaten und Energielevel einen Mood Score und ein
 ## Prerequisites
 Python 3.12+
 
+Check your version (if installed) with
+`python --version`
+
 ## How to set the project up
 
 1. Clone the repo: `git clone https://github.com/maddin-damago/project_biophilia.git`
