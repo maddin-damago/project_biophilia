@@ -2,6 +2,9 @@
 
 Anwendung die aufgrund von Wetterdaten und Energielevel einen Mood Score und eine Empfehlung von Wildkräutern/Naturerfahrung gibt. Der Nutzer füllt zunächst einen kleinen Fragebogen aus, dieser wird von der Anwendung verarbeitet und gibt eine Empfehlung zurück.
 
+## Prerequisites
+Python 3.12+
+
 ## How to set the project up
 
 1. Clone the repo: `git clone https://github.com/maddin-damago/project_biophilia.git`
