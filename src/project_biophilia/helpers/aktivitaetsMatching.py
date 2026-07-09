@@ -1,21 +1,3 @@
-# Content-Generation (Datenzusammenführung & Bereitstellung für das Frontend)
-
-"""Dulares:
-
-# 1. Import meiner Funktion
-from aktivitaetsMatching import generiereAktivitaet
-# 2. Ergebnis Wetter und WHO-5 Score Berechnung:
-
-stimmung_wetter_lage = "HIGH_OUTDOOR"
-oder: HIGH_INDOOR, STABLE_OUTDOOR, STABLE_INDOOR, REDUCED_OUTDOOR, REDUCED_INDOOR, CRITICAL_OUTDOOR, CRITICAL_INDOOR
-
-# 3. Übergabe des Strings an meine Funktion:
-das_fertige_frontend_paket = generiere_erlebnis_datenpaket(ergebnis_fall)
-
-# Jetzt enthält 'das_fertige_frontend_paket' deine HTML/JSON-Daten inklusive Bildern!
-print(das_fertige_frontend_paket)
-"""
-
 import json
 from pathlib import Path
 
